@@ -1,10 +1,19 @@
-# This script extracts content from an archive file that uses mbox format
-# and loads selected fields for eventual output to a CSV.
-# Each mbox message contains multiple articles.
-# Each row output will include email message date, email message id,
-# and fields extracted from a specific article in the email message.
+"""
+This script extracts content from an archive file that uses mbox format
+and loads selected fields for eventual output to a CSV.
+Each mbox message contains multiple articles.
 
-import sys
+Each row output will include email message date, email message id,
+and fields extracted from a specific article in the email message.
+
+You can run the program like this to read from MBOX_ARCHIVE and
+output to FILENAME:
+
+    python extract_google_alerts_mbox.py -m MBOX_ARCHIVE -o FILENAME
+
+"""
+
+import sys # Check version to avoid issues
 if not sys.version_info > (2, 7):
     sys.exit("You need to use a version of Python 3 earlier than Python 3.12.")
 elif not sys.version_info < (3, 12):
